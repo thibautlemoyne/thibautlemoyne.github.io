@@ -1,0 +1,63 @@
+@import url("https://p.typekit.net/p.css?s=1&k=lke6kpb&ht=tk&f=6768.6771.6772&a=21342123&app=typekit&e=css");
+
+@font-face {
+font-family:"adobe-garamond-pro";
+src:url("https://use.typekit.net/af/2011b6/00000000000000003b9b00c1/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/2011b6/00000000000000003b9b00c1/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/2011b6/00000000000000003b9b00c1/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:narrower;
+}
+
+/*body{
+	text-align: center;
+}*/
+dialog.ds-popup{
+	/* box */
+	position: fixed;
+	z-index: 99;
+	top: 20%;
+	width: 100%;
+
+	/* text */
+	text-align: center;
+	font-size: 3.5em;
+	font-family: 'adobe-garamond-pro', serif;
+	font-stretch: 50%;
+	padding: 0;
+
+	/* colors */
+	background-color: #000;
+	color: #640A0A;
+
+	/* effects */
+	border: none;
+	box-shadow: 
+		0 0 .5em 1em #000, 
+		0 0 0 1000px rgba(50, 50, 50, 0.5) ;
+	text-shadow: 0 0 1.2em #000;
+
+	/* animation */
+	animation-name: ds-popup-anim;
+	animation-duration: 10s;
+	animation-iteration-count: 1;
+}
+
+@keyframes ds-popup-anim {
+	from {
+		opacity: 0;
+		font-size: 2em;
+		text-shadow: 0 0 .6em orangered;
+	}
+
+	15%{
+		opacity: 1;
+		text-shadow: 0 0 1em #640A0A;
+	}
+
+	95%{
+		opacity: 1;
+	}
+
+	to {
+		font-size: 3.5em;
+		opacity: 1;
+	}
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Game Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="menu.js"></script>
+  </head>
+  <body oncontextmenu="return false;">
+    <div class="menu">
+      <h1>Game Menu</h1>
+      <input type="text" id="characterName" placeholder="Enter Character Name">
+      <br>
+      <button class="start-button" onclick="startGame()">Start</button>
+      <div class="controls">
+        <button id="configPannelBtn" onclick="openControlsMenu()">Configure Controls</button>
+      </div>
+    </div>
+    <div id="controlsMenu" class="controls-menu">
+      <span class="close-btn" onclick="closeControlsMenu()">✖</span>
+      <h2>Controls</h2>
+      <div>
+        <label>Inputs: <input type="text" id="inputController" class="controlInput" onclick="toggleControllerType()" readonly>
+        </label>
+        <br>
+        <div id="keyboardControls">
+          <label>Move Up: <input type="text" id="moveUpKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Move Down: <input type="text" id="moveDownKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Move Left: <input type="text" id="moveLeftKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Move Right: <input type="text" id="moveRightKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Move Up alt: <input type="text" id="moveUp2Key" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Move Down alt: <input type="text" id="moveDown2Key" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Turn Left: <input type="text" id="lookLeftKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Turn Right: <input type="text" id="lookRightKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Jump: <input type="text" id="jump" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Attack: <input type="text" id="atck1" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Roll: <input type="text" id="roll" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+        </div>
+        <div id="controllerControls" style="display: none;">
+          <label>Move X: <input type="text" id="moveXController" class="controlInput" onclick="toggleStickValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Move Y: <input type="text" id="moveYController" class="controlInput" onclick="toggleStickValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Camera X: <input type="text" id="cameraXController" class="controlInput" onclick="toggleStickValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Camera Y: <input type="text" id="cameraYController" class="controlInput" onclick="toggleStickValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Jump: <input type="text" id="jumpController" class="controlInput" onclick="toggleBtnValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Attack: <input type="text" id="atck1Controller" class="controlInput" onclick="toggleBtnValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Roll: <input type="text" id="rollController" class="controlInput" onclick="toggleBtnValue(this.id)" readonly>
+          </label>
+          <br>
+        </div>
+      </div>
+      <button onclick="resetControls()">Reset</button>
+    </div>
+    <script>
+      function startGame() {
+        const characterName = document.getElementById('characterName').value;
+        localStorage.setItem('playerName', characterName);
+        window.location.href = 'index.html';
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Projet Web</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.159.0/three.min.js" integrity="sha512-OviGQIoFPxWNbGybQNprasilCxjtXNGCjnaZQvDeCT0lSPwJXd5TC3usI/jsWepKW9lZLZ1ob1q/Vy4MnlTt7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--<script src="./js/three.js-master/build/three.min.js"></script>-->
+    <script type="module" src="script.js"></script>
+    <script type="module" src="health.js"></script>
+    <script type="module" src="models_oriente_objet.js"></script>
+    <script type="module" src="characterActions.js"></script>
+    <script src="menu.js"></script>
+    <link href="youdied.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style.css">
+    <!--<link rel="stylesheet" href="stylesUI_0.1.css">-->
+  </head>
+  <body oncontextmenu="return false;">
+    <div class="health-container">
+      <div class="hbar" style="z-index: 0;">
+        <div class="bghealth" style="width: 100%;font-size: 1.3em;">
+          <span class="left hbar" id="playerName"></span>
+          <span class="right hbar" style="z-index: 0;"></span>
+        </div>
+      </div>
+    </div>
+    <div class="settingsButton" onclick="openControlsMenu()">
+      <img src="./img/setting.svg" alt="Settings">
+    </div>
+    <div id="controlsMenu" class="controls-menu">
+      <span class="close-btn" onclick="closeControlsMenu()">✖</span>
+      <h2>Controls</h2>
+      <div>
+        <label>Inputs: <input type="text" id="inputController" class="controlInput" onclick="toggleControllerType()" readonly>
+        </label>
+        <br>
+        <div id="keyboardControls">
+          <label>Move Up: <input type="text" id="moveUpKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Move Down: <input type="text" id="moveDownKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Move Left: <input type="text" id="moveLeftKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Move Right: <input type="text" id="moveRightKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Move Up alt: <input type="text" id="moveUp2Key" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Move Down alt: <input type="text" id="moveDown2Key" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Turn Left: <input type="text" id="lookLeftKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Turn Right: <input type="text" id="lookRightKey" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Jump: <input type="text" id="jump" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Attack: <input type="text" id="atck1" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+          <label>Roll: <input type="text" id="roll" class="controlInput" onkeydown="captureKey(this.id, event)" readonly>
+          </label>
+          <br>
+        </div>
+        <div id="controllerControls" style="display: none;">
+          <label>Move X: <input type="text" id="moveXController" class="controlInput" onclick="toggleStickValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Move Y: <input type="text" id="moveYController" class="controlInput" onclick="toggleStickValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Camera X: <input type="text" id="cameraXController" class="controlInput" onclick="toggleStickValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Camera Y: <input type="text" id="cameraYController" class="controlInput" onclick="toggleStickValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Jump: <input type="text" id="jumpController" class="controlInput" onclick="toggleBtnValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Attack: <input type="text" id="atck1Controller" class="controlInput" onclick="toggleBtnValue(this.id)" readonly>
+          </label>
+          <br>
+          <label>Roll: <input type="text" id="rollController" class="controlInput" onclick="toggleBtnValue(this.id)" readonly>
+          </label>
+          <br>
+        </div>
+      </div>
+      <script>
+        const playerName = localStorage.getItem('playerName');
+        if (playerName) {
+          document.getElementById('playerName').textContent = playerName;
+        }
+      </script>
+  </body>
+</html>
